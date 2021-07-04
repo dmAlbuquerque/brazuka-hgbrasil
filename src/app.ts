@@ -60,9 +60,31 @@ function financeIbovespa(key: string, symbol:string) {
   return response
 }
 
+/**
+ * Retorna os dados de localização com base na api de GeoIP da www.hgbrasil.com.br
+ * 
+ * @param key chave gerada no site da hgbrasil
+ * @param address neste parâmetro pode ser passado 'ip_do_usuario' ou 
+ * 'remote' para pegar o IP automáticamente
+ * 
+ */
+function geoIP(key: string, address: string) {
+  const url = `${baseUrl}/geoip?symbol`
+
+  var response = axios.get(`${url}&key=${key}&address=${address}`)
+    .then(function (response: any) {
+      return response.data
+    })
+    .catch(function (error: any) {
+      return error.status
+    })
+  return response
+}
+
 
 module.exports = {
   weather,
   financeCurrency,
-  financeIbovespa
+  financeIbovespa,
+  geoIP
 }
