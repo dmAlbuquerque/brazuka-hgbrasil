@@ -7,7 +7,6 @@ const baseUrl = 'https://api.hgbrasil.com'
  * @param key chave gerada no site da hgbrasil
  * @param city cidade da previsão do tempo, ex: Frecheirinha
  * @param state sigla do estado da cidade, ex: CE
- * @returns 
  */
 function weather(key:string, city:string, state:string){
   const url = `${baseUrl}/weather?format=json-cors`
@@ -24,9 +23,12 @@ function weather(key:string, city:string, state:string){
 
 /**
  * Retorna as cotações de moedas com base na api da https://hgbrasil.com
+ * 
+ * @param key chave gerada no site da hgbrasil
+ *  
  */
-function financeCurrency() {
-  const url = `${baseUrl}/finance`
+function financeCurrency(key:string) {
+  const url = `${baseUrl}/finance?key=${key}`
 
   var response = axios.get(url)
     .then(function (response: any) {
@@ -45,12 +47,12 @@ function financeCurrency() {
  * @param symbol ações da IBOVESPA para listar
  * 
  * Obs.: No plano gratuito da hgbrasil só é possível passar 1 ação por vez,
- * no plano pago é permitido passar mais de 1.
+ * no plano pago é permitido passar mais de 1 separado por virgula.
  */
 function financeIbovespa(key: string, symbol:string) {
-  const url = `${baseUrl}/finance?symbol`
+  const url = `${baseUrl}/finance/stock_price`
 
-  var response = axios.get(`${url}&key=${key}&symbol=${symbol}`)
+  var response = axios.get(`${url}?key=${key}&symbol=${symbol}`)
     .then(function (response: any) {
       return response.data
     })
@@ -68,7 +70,7 @@ function financeIbovespa(key: string, symbol:string) {
  * 'remote' para pegar o IP automáticamente
  * 
  */
-function geoIP(key: string, address: string) {
+function geoIP(key: string, address = "remote") {
   const url = `${baseUrl}/geoip?symbol`
 
   var response = axios.get(`${url}&key=${key}&address=${address}`)
