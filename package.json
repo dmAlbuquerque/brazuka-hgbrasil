@@ -1,7 +1,7 @@
 {
   "name": "brazuka-hgbrasil",
   "version": "0.0.1",
-  "description": "Esta biblioteca facilita a requisição dos dados da api do site www.hgbrasil.com.br",
+  "description": "Obtenha dados de Previsão do Tempo, Cotações de Moedas, IBOVESPA e Geolocalização, baseado na api da HGBrasil.",
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc -p .",
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "weather","finance","brazil","geo-ip", "geoip","hgbrasil",
-    "api-hgbrasil","brazuka"
+    "api-hgbrasil", "hbrasil-api","brazuka", "cotações","cotações-moedas","ibovespa","bolsa-de-valores","geo-localização"
   ],
   "author": "Daniel Albuquerque",
   "license": "MIT",

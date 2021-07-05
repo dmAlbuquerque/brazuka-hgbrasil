@@ -63,7 +63,7 @@ function financeIbovespa(key: string, symbol:string) {
 }
 
 /**
- * Retorna os dados de localização com base na api de GeoIP da www.hgbrasil.com.br
+ * Retorna os dados de localização com base na api de GeoIP da www.hgbrasil.com
  * 
  * @param key chave gerada no site da hgbrasil
  * @param address neste parâmetro pode ser passado 'ip_do_usuario' ou 

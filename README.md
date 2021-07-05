@@ -1,8 +1,16 @@
-# Obtenha dados de Weather, Finance, GeoIP
+# Obtenha dados de Previsão do Tempo, Cotações de Moedas, IBOVESPA e Geolocalização
 
-Esta API facilita a requisição dos dados do site www.hgbrasil.com.br
+Esta biblioteca visa facilitar as requisições dos dados da api da www.hgbrasil.com
 
 Em casos de dúvida consulte a <a href="https://console.hgbrasil.com/documentation/weather"> documentação oficial</a> da HGBrasil.
+
+<br>
+
+# Avisos
+
+ - Esta <b>não é</b> uma biblioteca oficial da HGBrasil. 
+ 
+ - Informações como <b>cotações de moedas</b> e <b>BOVESPA</b> podem ser retornados com atrasos entre 15 minutos e 1 hora. Você pode conferir o horário da última atualização dos dados no <code>updated_at</code>.
 
 <br>
 
@@ -32,7 +40,7 @@ Retorna os dados de previsão do tempo e condições climáticas atuais para uma
 ```js
 const brazuka = require("brazuka-hgbrasil")
 
-var key = "11ad1a1f" //key gerada na www.hgbrasil.com.br
+var key = "11ad1a1f" //key gerada na www.hgbrasil.com
 var city = "Frecheirinha"
 var state = "CE"
 
@@ -156,7 +164,7 @@ Retorna a cotação de diversas moedas.
 ```js
 const brazuka = require("brazuka-hgbrasil")
 
-var key = "11ad1a1f" //key gerada na www.hgbrasil.com.br
+var key = "11ad1a1f" //key gerada na www.hgbrasil.com
 
 brazuka.financeCurrency(key).then(function (res) {
     console.log(res.results)
@@ -338,7 +346,7 @@ Títulos disponíveis (symbols): <a href="https://console.hgbrasil.com/documenta
 ```js
 const brazuka = require("brazuka-hgbrasil")
 
-var key = "11ad1a1f" //key gerada na www.hgbrasil.com.br
+var key = "11ad1a1f" //key gerada na www.hgbrasil.com
 var symbol = "bidi4" //No plano pago é aceito passar mais de 1, ex: bidi4,petr4,qual3
 
 brazuka.financeIbovespa(key, symbol).then(function (res) {
@@ -390,7 +398,7 @@ Títulos disponíveis (symbols): <a href="https://console.hgbrasil.com/documenta
 ```js
 const brazuka = require("brazuka-hgbrasil")
 
-var key = "11ad1a1f" //key gerada na www.hgbrasil.com.br
+var key = "11ad1a1f" //key gerada na www.hgbrasil.com
 var symbol = "get-high" //Obtem as maiores altas
 
 brazuka.financeIbovespa(key, symbol).then(function (res) {
@@ -404,7 +412,7 @@ brazuka.financeIbovespa(key, symbol).then(function (res) {
 ```js
 const brazuka = require("brazuka-hgbrasil")
 
-var key = "11ad1a1f" //key gerada na www.hgbrasil.com.br
+var key = "11ad1a1f" //key gerada na www.hgbrasil.com
 var symbol = "get-low" //Obtem as maiores baixas
 
 brazuka.financeIbovespa(key, symbol).then(function (res) {
@@ -452,7 +460,7 @@ brazuka.financeIbovespa(key, symbol).then(function (res) {
 ```js
 const brazuka = require("brazuka-hgbrasil")
 
-var key = "11ad1a1f" //key gerada na www.hgbrasil.com.br
+var key = "11ad1a1f" //key gerada na www.hgbrasil.com
 var address = "remote" //Por padrão é remote
 
 brazuka.geoIP(key, address).then(function (res) {
